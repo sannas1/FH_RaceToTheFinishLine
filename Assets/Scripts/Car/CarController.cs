@@ -39,6 +39,14 @@ public class CarController : MonoBehaviour
     public void SetInputEnabled(bool enabled)
     {
         inputEnabled = enabled;
+
+        // sonst bleibt der letzte gaswert stehen und die KI faehrt nach dem ziel weiter
+        if (!enabled)
+        {
+            moveInput = 0f;
+            steerInput = 0f;
+            handbrakeHeld = false;
+        }
     }
 
     private void Update()

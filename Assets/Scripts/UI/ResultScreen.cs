@@ -17,6 +17,8 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] private TMP_Text bestLapText;
     [SerializeField] private float fadeDuration = 0.5f;
 
+    public bool IsShowing => canvasGroup != null && canvasGroup.blocksRaycasts;
+
     private void Awake()
     {
         Instance = this;

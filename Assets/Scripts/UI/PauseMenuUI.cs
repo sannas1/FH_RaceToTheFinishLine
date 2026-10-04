@@ -46,6 +46,10 @@ public class PauseMenuUI : MonoBehaviour
 
     private void Update()
     {
+        // nach dem rennen nicht mehr pausieren, sonst versteckt Continue() den cursor
+        // waehrend der ergebnis-screen noch offen ist
+        if (ResultScreen.Instance != null && ResultScreen.Instance.IsShowing) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused) Continue();
